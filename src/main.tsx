@@ -1,6 +1,6 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { HashRouter, Routes, Route } from 'react-router-dom'
 import './index.css'
 import App from './App.tsx'
 import { Projects } from './pages/Projects.tsx'
@@ -13,7 +13,7 @@ import { Footer } from './components/layout/Footer'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <BrowserRouter>
+    <HashRouter>
       <div className="bg-primary min-h-screen text-secondary font-sans selection:bg-accent selection:text-primary">
         <Navbar />
         <main>
@@ -28,6 +28,6 @@ createRoot(document.getElementById('root')!).render(
         </main>
         <Footer />
       </div>
-    </BrowserRouter>
+    </HashRouter>
   </StrictMode>,
 )

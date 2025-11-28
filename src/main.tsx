@@ -7,6 +7,7 @@ import { Projects } from './pages/Projects.tsx'
 import { ProjectDetail } from './pages/ProjectDetail.tsx'
 import { Contact } from './pages/Contact.tsx'
 import { AboutUs } from './pages/AboutUs.tsx'
+import { ServicesPage } from './pages/ServicesPage.tsx'
 import { Navbar } from './components/layout/Navbar'
 import { Footer } from './components/layout/Footer'
 
@@ -22,6 +23,7 @@ createRoot(document.getElementById('root')!).render(
             <Route path="/projects/:id" element={<ProjectDetail />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/about" element={<AboutUs />} />
+            <Route path="/services" element={<ServicesPage />} />
           </Routes>
         </main>
         <Footer />

@@ -31,7 +31,7 @@ export function Navbar() {
                 <div className="hidden md:flex items-center space-x-8">
 
                     <Link to="/projects" className="text-sm uppercase tracking-widest text-secondary/80 hover:text-accent transition-colors">Projects</Link>
-                    <a href="/#services" className="text-sm uppercase tracking-widest text-secondary/80 hover:text-accent transition-colors">Services</a>
+                    <Link to="/services" className="text-sm uppercase tracking-widest text-secondary/80 hover:text-accent transition-colors">Services</Link>
                     <Link to="/about" className="text-sm uppercase tracking-widest text-secondary/80 hover:text-accent transition-colors">About Us</Link>
 
                     <Link to="/contact">
@@ -55,7 +55,7 @@ export function Navbar() {
                 <div className="md:hidden absolute top-full left-0 w-full bg-primary border-b border-white/10 p-6 flex flex-col space-y-4">
 
                     <Link to="/projects" className="text-sm uppercase tracking-widest text-secondary/80 hover:text-accent transition-colors" onClick={() => setIsMobileMenuOpen(false)}>Projects</Link>
-                    <a href="/#services" className="text-sm uppercase tracking-widest text-secondary/80 hover:text-accent transition-colors" onClick={() => setIsMobileMenuOpen(false)}>Services</a>
+                    <Link to="/services" className="text-sm uppercase tracking-widest text-secondary/80 hover:text-accent transition-colors" onClick={() => setIsMobileMenuOpen(false)}>Services</Link>
                     <Link to="/about" className="text-sm uppercase tracking-widest text-secondary/80 hover:text-accent transition-colors" onClick={() => setIsMobileMenuOpen(false)}>About Us</Link>
 
                     <Link to="/contact" onClick={() => setIsMobileMenuOpen(false)}>

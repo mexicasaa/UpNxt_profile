@@ -1,4 +1,4 @@
-import { ArrowLeft, MapPin, Users, Video, TrendingUp } from 'lucide-react';
+import { ArrowLeft, MapPin, Users, TrendingUp } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 export function AboutUs() {

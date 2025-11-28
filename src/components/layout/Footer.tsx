@@ -9,7 +9,7 @@ export function Footer() {
                     {/* Brand */}
                     <div className="col-span-1 md:col-span-1">
                         <a href="#" className="text-2xl font-serif font-bold tracking-widest text-secondary block mb-6">
-                            mexicasaa<span className="text-accent">.</span>
+                            mexicasaa
                         </a>
                         <p className="text-secondary/60 font-light text-sm leading-relaxed">
                             Premier model management agency connecting exceptional talent with global brands.

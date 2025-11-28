@@ -1,5 +1,4 @@
-import { ArrowLeft, Mail, MapPin, Phone, Send } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Mail, MapPin, Phone, Send } from 'lucide-react';
 
 export function Contact() {
     return (
@@ -11,13 +10,7 @@ export function Contact() {
             {/* Header */}
             <section className="pt-32 pb-12 relative z-10">
                 <div className="container mx-auto px-6">
-                    <Link
-                        to="/"
-                        className="inline-flex items-center space-x-2 text-secondary/60 hover:text-accent transition-colors mb-12 group"
-                    >
-                        <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
-                        <span className="text-xs uppercase tracking-[0.2em]">Back to Home</span>
-                    </Link>
+
 
                     <div className="max-w-4xl">
                         <h1 className="text-5xl md:text-7xl lg:text-8xl font-serif font-bold mb-6 leading-tight">

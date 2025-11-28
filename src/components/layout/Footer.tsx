@@ -16,19 +16,6 @@ export function Footer() {
                         </p>
                     </div>
 
-                    {/* Navigation */}
-                    <div>
-                        <h4 className="text-accent uppercase tracking-widest text-xs font-bold mb-6">Explore</h4>
-                        <ul className="space-y-4">
-                            {['Agency', 'Models', 'Services', 'Contact'].map((item) => (
-                                <li key={item}>
-                                    <a href={`#${item.toLowerCase()}`} className="text-secondary/70 hover:text-white text-sm transition-colors">
-                                        {item}
-                                    </a>
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
 
                     {/* Contact */}
                     <div>

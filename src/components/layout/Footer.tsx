@@ -9,7 +9,7 @@ export function Footer() {
                     {/* Brand */}
                     <div className="col-span-1 md:col-span-1">
                         <a href="#" className="text-2xl font-serif font-bold tracking-widest text-secondary block mb-6">
-                            UpNxt<span className="text-accent">.</span>
+                            mexicasaa<span className="text-accent">.</span>
                         </a>
                         <p className="text-secondary/60 font-light text-sm leading-relaxed">
                             Premier model management agency connecting exceptional talent with global brands.
@@ -62,7 +62,7 @@ export function Footer() {
                 </div>
 
                 <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-secondary/40">
-                    <p>&copy; {new Date().getFullYear()} UpNxt. All rights reserved.</p>
+                    <p>&copy; {new Date().getFullYear()} mexicasaa. All rights reserved.</p>
                     <div className="flex space-x-6 mt-4 md:mt-0">
                         <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
                         <a href="#" className="hover:text-white transition-colors">Terms of Service</a>

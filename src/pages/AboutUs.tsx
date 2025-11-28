@@ -20,7 +20,7 @@ export function AboutUs() {
 
                     <div className="max-w-4xl">
                         <h1 className="text-5xl md:text-7xl lg:text-8xl font-serif font-bold mb-6 leading-tight">
-                            About <span className="text-accent italic">UpNxt</span>
+                            About <span className="text-accent italic">mexicasaa</span>
                         </h1>
                         <p className="text-secondary/70 text-lg md:text-xl font-light max-w-2xl leading-relaxed">
                             We are a premier content creation agency dedicated to elevating brands through authentic, high-impact storytelling.
@@ -52,7 +52,7 @@ export function AboutUs() {
                                 Bringing Your Brand to <span className="text-accent italic">Life</span>
                             </h2>
                             <p className="text-secondary/80 text-lg font-light leading-relaxed">
-                                At UpNxt, we specialize in a unique on-location service that bridges the gap between your brand and your audience. We don't just create content; we create experiences.
+                                At mexicasaa, we specialize in a unique on-location service that bridges the gap between your brand and your audience. We don't just create content; we create experiences.
                             </p>
                             <p className="text-secondary/80 text-lg font-light leading-relaxed">
                                 Our team of professional creators and models travels directly to your location—whether it's a luxury hotel, a boutique salon, or a corporate headquarters—to capture the essence of your brand in its most authentic environment.

@@ -24,7 +24,7 @@ export function Navbar() {
         >
             <div className="container mx-auto px-6 flex justify-between items-center">
                 <Link to="/" className="text-2xl font-serif font-bold tracking-widest text-secondary">
-                    UpNxt<span className="text-accent">.</span>
+                    mexicasaa<span className="text-accent">.</span>
                 </Link>
 
                 {/* Desktop Menu */}

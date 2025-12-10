@@ -1,73 +1,100 @@
-import { Video, Camera, Users, Sparkles } from 'lucide-react';
+import { Bot, Workflow, Database, Brain, BarChart, Code2 } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 const services = [
     {
-        icon: <Video className="w-8 h-8" />,
-        title: "Brand Reels",
-        description: "Cinematic vertical video content designed for viral impact on Instagram and TikTok."
+        icon: <Bot className="w-8 h-8" />,
+        title: "Intelligent Chatbots",
+        description: "24/7 support agents training on your knowledge base. Handle 80% of L1 queries instantly.",
+        features: ["Multi-channel Support", "Sentiment Analysis", "Seamless Handoff"]
     },
     {
-        icon: <Camera className="w-8 h-8" />,
-        title: "Editorial Photoshoots",
-        description: "High-fashion campaign imagery for luxury brands, hotels, and lifestyle products."
+        icon: <Workflow className="w-8 h-8" />,
+        title: "Workflow Automation",
+        description: "End-to-end automation of repetitive tasks using Zapier, Make, and custom Python scripts.",
+        features: ["CRM Sync", "Email Automation", "Document Processing"]
     },
     {
-        icon: <Users className="w-8 h-8" />,
-        title: "Model Casting",
-        description: "Curated selection of professional talent matching your brand's unique aesthetic."
+        icon: <Brain className="w-8 h-8" />,
+        title: "AI Agents",
+        description: "Autonomous agents that can research, plan, and execute multi-step complex tasks.",
+        features: ["Market Research", "Lead Qualification", "Content Generation"]
     },
     {
-        icon: <Sparkles className="w-8 h-8" />,
-        title: "Creative Strategy",
-        description: "Comprehensive visual direction and influencer partnerships to amplify your presence."
+        icon: <Database className="w-8 h-8" />,
+        title: "Data Extraction",
+        description: "Scrape and structure data from any web source or internal document for actionable insights.",
+        features: ["Web Scraping", "PDF Parsing", "Data Enrichment"]
+    },
+    {
+        icon: <BarChart className="w-8 h-8" />,
+        title: "Predictive Analytics",
+        description: "Custom ML models to forecast sales, churn, and market trends based on your historical data.",
+        features: ["Sales Forecasting", "Risk Assessment", "Customer Segmentation"]
+    },
+    {
+        icon: <Code2 className="w-8 h-8" />,
+        title: "Custom LLM Dev",
+        description: "Fine-tune open source models (Llama, Mistral) on your proprietary data for secure enterprise use.",
+        features: ["Fine-tuning", "RAG Systems", "On-premise Deployment"]
     }
 ];
 
 export function ServicesPage() {
     return (
-        <div className="min-h-screen bg-primary text-secondary relative overflow-hidden">
-            {/* Decorative Background */}
-            <div className="absolute top-0 left-0 w-[800px] h-[800px] bg-accent/5 rounded-full blur-[128px] pointer-events-none -translate-x-1/2 -translate-y-1/2"></div>
-
+        <div className="min-h-screen bg-black text-white font-sans selection:bg-white selection:text-black">
             {/* Header */}
-            <section className="pt-32 pb-16 relative z-10">
+            <section className="pt-32 pb-24 border-b border-white/10">
                 <div className="container mx-auto px-6">
-                    <div className="max-w-4xl">
-                        <h1 className="text-5xl md:text-7xl lg:text-8xl font-serif font-bold mb-6 leading-tight">
-                            Our <span className="text-accent italic">Expertise</span>
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        className="max-w-4xl"
+                    >
+                        <h1 className="text-6xl md:text-8xl font-bold tracking-tighter mb-8">
+                            Enterprise <br /> Capabilities.
                         </h1>
-                        <p className="text-secondary/70 text-lg md:text-xl font-light max-w-2xl leading-relaxed">
-                            We create stunning brand reels and photoshoots that captivate audiences and define luxury.
+                        <p className="text-xl md:text-2xl text-white/60 font-light max-w-2xl leading-relaxed">
+                            We deploy state-of-the-art AI infrastructure designed for speed, scalability, and security to give you the competitive edge.
                         </p>
-                    </div>
+                    </motion.div>
                 </div>
             </section>
 
             {/* Services Grid */}
-            <section className="pb-32 relative z-10">
+            <section className="py-24">
                 <div className="container mx-auto px-6">
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                         {services.map((service, index) => (
-                            <div
+                            <motion.div
                                 key={index}
-                                className="group relative p-12 rounded-2xl border border-white/10 bg-white/5 hover:bg-white/10 transition-all duration-500 hover:-translate-y-2"
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ delay: index * 0.1 }}
+                                className="group p-8 border border-white/10 bg-zinc-900/50 hover:bg-zinc-900 transition-colors duration-500 rounded-sm"
                             >
-                                <div className="absolute inset-0 bg-gradient-to-br from-accent/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl"></div>
-
-                                <div className="relative z-10">
-                                    <div className="w-20 h-20 rounded-full bg-white/5 flex items-center justify-center text-accent mb-8 group-hover:scale-110 transition-transform duration-500 group-hover:bg-accent group-hover:text-black">
-                                        {service.icon}
-                                    </div>
-
-                                    <h3 className="text-3xl font-serif font-semibold mb-6 text-white group-hover:text-accent transition-colors duration-300">
-                                        {service.title}
-                                    </h3>
-
-                                    <p className="text-secondary/70 text-lg font-light leading-relaxed group-hover:text-secondary/90 transition-colors duration-300">
-                                        {service.description}
-                                    </p>
+                                <div className="w-16 h-16 flex items-center justify-center text-white mb-8 bg-black border border-white/10 rounded-sm group-hover:bg-white group-hover:text-black transition-all duration-500">
+                                    {service.icon}
                                 </div>
-                            </div>
+
+                                <h3 className="text-2xl font-bold mb-4 text-white">
+                                    {service.title}
+                                </h3>
+
+                                <p className="text-white/60 font-light leading-relaxed mb-8 h-20">
+                                    {service.description}
+                                </p>
+
+                                <ul className="space-y-4 mb-8 border-t border-white/10 pt-6">
+                                    {service.features.map((feature, i) => (
+                                        <li key={i} className="flex items-center text-sm text-white/40 font-mono uppercase tracking-wider">
+                                            <div className="w-1 h-1 bg-white rounded-full mr-3" />
+                                            {feature}
+                                        </li>
+                                    ))}
+                                </ul>
+                            </motion.div>
                         ))}
                     </div>
                 </div>

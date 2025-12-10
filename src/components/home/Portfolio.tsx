@@ -1,95 +1,133 @@
 import { Link } from 'react-router-dom';
+import { ArrowUpRight, Users, Clock, ArrowRight, Zap, CircleDollarSign, Shield } from 'lucide-react';
+import { motion } from 'framer-motion';
 import { getFeaturedProjects } from '../../data/projects';
-import { ArrowUpRight } from 'lucide-react';
-
-// Map of the 6 featured Instagram reels to their embed URLs
-const instagramReelUrls: Record<string, string> = {
-    'featured-reel-1': 'https://www.instagram.com/reel/DPqft6mAIz1/embed',
-    'featured-reel-2': 'https://www.instagram.com/reel/DJllV4bCrNb/embed',
-    'featured-reel-3': 'https://www.instagram.com/reel/DPu9jRyCAIP/embed',
-    'featured-reel-4': 'https://www.instagram.com/reel/DPOk-SsjA1y/embed',
-    'featured-reel-5': 'https://www.instagram.com/reel/DM2NXSss50m/embed',
-    'featured-reel-6': 'https://www.instagram.com/reel/DQ3eY7hkur0/embed'
-};
-
-const instagramViewUrls: Record<string, string> = {
-    'featured-reel-1': 'https://www.instagram.com/reel/DPqft6mAIz1/',
-    'featured-reel-2': 'https://www.instagram.com/reel/DJllV4bCrNb/',
-    'featured-reel-3': 'https://www.instagram.com/reel/DPu9jRyCAIP/',
-    'featured-reel-4': 'https://www.instagram.com/reel/DPOk-SsjA1y/',
-    'featured-reel-5': 'https://www.instagram.com/reel/DM2NXSss50m/',
-    'featured-reel-6': 'https://www.instagram.com/reel/DQ3eY7hkur0/'
-};
 
 export function Portfolio() {
-    const portfolioItems = getFeaturedProjects();
+    // Get only the first 3 projects for the home page showcase
+    const caseStudies = getFeaturedProjects().slice(0, 3);
+
+    const getIconForCategory = (category: string) => {
+        if (category.includes('Health')) return Users;
+        if (category.includes('Finance')) return Shield;
+        if (category.includes('Estate')) return Clock;
+        if (category.includes('Commerce')) return CircleDollarSign;
+        return Zap;
+    };
 
     return (
-        <section id="models" className="py-24 bg-primary text-secondary relative overflow-hidden">
-            {/* Decorative Background */}
-            <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-accent/5 rounded-full blur-[128px] pointer-events-none -translate-y-1/2 translate-x-1/2"></div>
+        <section id="work" className="py-32 bg-primary relative overflow-hidden">
+            {/* Ambient Background - Subtle and Professional */}
+            <div className="absolute top-1/4 right-0 w-[500px] h-[500px] bg-accent/5 rounded-full blur-[120px] pointer-events-none" />
 
             <div className="container mx-auto px-6 relative z-10">
-                <div className="flex flex-col md:flex-row justify-between items-end mb-16">
-                    <div>
-                        <h2 className="text-4xl md:text-6xl font-serif font-bold mb-4">
-                            Featured <span className="text-accent italic">Work</span>
-                        </h2>
-                        <p className="text-secondary/60 font-light text-lg max-w-md">
-                            A curated selection of our most impactful social media campaigns and viral content.
-                        </p>
+                <div className="flex flex-col md:flex-row justify-between items-end mb-16 px-2">
+                    <div className="max-w-2xl">
+                        <motion.span
+                            initial={{ opacity: 0, x: -20 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            className="text-accent uppercase tracking-widest text-xs font-semibold mb-4 block"
+                        >
+                            Case Studies
+                        </motion.span>
+                        <motion.h2
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            className="text-4xl md:text-5xl font-bold text-white leading-tight tracking-tight"
+                        >
+                            Proven <span className="text-white">Results</span>
+                        </motion.h2>
                     </div>
-                    <Link
-                        to="/projects"
-                        className="group flex items-center gap-2 border-b border-accent pb-1 text-sm uppercase tracking-widest hover:text-accent transition-colors mt-8 md:mt-0"
+
+                    <motion.div
+                        initial={{ opacity: 0, x: 20 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
                     >
-                        View All Projects
-                        <ArrowUpRight className="w-4 h-4 group-hover:-translate-y-1 group-hover:translate-x-1 transition-transform" />
-                    </Link>
+                        <Link
+                            to="/projects"
+                            className="hidden md:flex items-center gap-2 group text-white/80 hover:text-white transition-colors text-sm font-medium tracking-wide"
+                        >
+                            View All Projects
+                            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                        </Link>
+                    </motion.div>
                 </div>
 
-                {/* Grid of 6 Instagram Reels */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    {portfolioItems.map((item) => (
-                        <div key={item.id} className="group relative">
-                            {/* Card Container */}
-                            <div className="relative overflow-hidden rounded-xl border border-white/10 bg-white/5 transition-all duration-500 group-hover:border-accent/30 group-hover:-translate-y-2">
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                    {caseStudies.map((study, index) => {
+                        const Icon = getIconForCategory(study.category);
+                        // Use first result metric if available, else fallback logic could go here
+                        const mainResult = study.results?.[0]?.value || "High Impact";
+                        const mainMetric = study.results?.[0]?.metric || "Efficiency";
 
-                                {/* Embed Container */}
-                                <div className="aspect-[4/5] overflow-hidden bg-black flex items-center justify-center relative">
-                                    <iframe
-                                        src={instagramReelUrls[item.id]}
-                                        width="100%"
-                                        height="100%"
-                                        frameBorder="0"
-                                        scrolling="no"
-                                        allowTransparency={true}
-                                        className="w-full h-full relative z-10"
-                                        title={item.title}
+                        return (
+                            <motion.div
+                                key={study.id}
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                transition={{ delay: index * 0.1 }}
+                                viewport={{ once: true }}
+                                className="group relative h-[480px] rounded-2xl overflow-hidden bg-white/[0.02] border border-white/5 hover:border-white/10 transition-colors duration-500"
+                            >
+                                {/* Image Background */}
+                                <div className="absolute inset-0 z-0">
+                                    <img
+                                        src={study.image}
+                                        alt={study.client || study.title}
+                                        className="w-full h-full object-cover opacity-50 group-hover:opacity-30 group-hover:scale-105 transition-all duration-700 ease-out grayscale group-hover:grayscale-0"
                                     />
+                                    <div className="absolute inset-0 bg-gradient-to-t from-black via-black/90 to-black/20" />
+                                </div>
 
-                                    {/* Overlay on Hover */}
-                                    <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20 flex flex-col items-center justify-center p-6 text-center backdrop-blur-sm pointer-events-none">
-                                        <p className="text-accent text-xs uppercase tracking-[0.2em] mb-3 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-                                            {item.category}
+                                <div className="relative z-10 p-8 h-full flex flex-col justify-end">
+                                    {/* Category Badge */}
+                                    <div className="absolute top-6 left-6">
+                                        <div className="inline-flex items-center gap-2 bg-white/5 backdrop-blur-md border border-white/5 rounded-full px-3 py-1.5">
+                                            <Icon className="w-3.5 h-3.5 text-accent" />
+                                            <span className="text-[11px] font-medium text-white/80 tracking-wider uppercase">{study.category}</span>
+                                        </div>
+                                    </div>
+
+                                    <div className="transform translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
+                                        <h3 className="text-xl font-semibold text-white mb-4 tracking-tight">{study.client || study.title}</h3>
+
+                                        <div className="flex flex-col mb-6">
+                                            <span className="text-5xl font-bold text-white tracking-tighter mb-1">
+                                                {mainResult}
+                                            </span>
+                                            <span className="text-xs text-secondary/60 uppercase tracking-widest font-medium">
+                                                {mainMetric}
+                                            </span>
+                                        </div>
+
+                                        <p className="text-secondary/70 text-sm leading-relaxed mb-6 line-clamp-2 group-hover:text-secondary/90 transition-colors">
+                                            {study.description}
                                         </p>
-                                        <h3 className="text-2xl font-serif italic text-white mb-6 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-75">
-                                            {item.title}
-                                        </h3>
-                                        <a
-                                            href={instagramViewUrls[item.id]}
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            className="inline-flex items-center gap-2 px-6 py-3 bg-accent text-primary text-xs font-bold uppercase tracking-widest rounded-full hover:bg-white transition-colors transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-150 pointer-events-auto"
+
+                                        <Link
+                                            to={`/projects/${study.id}`}
+                                            className="inline-flex items-center gap-2 text-white border-b border-white/20 pb-0.5 hover:border-white transition-colors group/link w-fit"
                                         >
-                                            View on Instagram
-                                            <ArrowUpRight className="w-3 h-3" />
-                                        </a>
+                                            <span className="text-xs font-semibold uppercase tracking-wider">Read Full Case Study</span>
+                                            <ArrowUpRight className="w-3.5 h-3.5 group-hover/link:-translate-y-0.5 group-hover/link:translate-x-0.5 transition-transform" />
+                                        </Link>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                    ))}
+                            </motion.div>
+                        )
+                    })}
+                </div>
+
+                <div className="mt-12 md:hidden flex justify-center">
+                    <Link
+                        to="/projects"
+                        className="flex items-center gap-2 text-white/80 hover:text-white transition-colors text-sm font-medium tracking-wide"
+                    >
+                        View All Projects
+                        <ArrowRight className="w-4 h-4" />
+                    </Link>
                 </div>
             </div>
         </section>

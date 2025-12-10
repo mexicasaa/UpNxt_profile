@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -6,15 +6,24 @@
 
 @layer base {
   body {
-    @apply bg-primary text-secondary font-sans antialiased;
-  }
-  h1, h2, h3, h4, h5, h6 {
-    @apply font-serif;
+    @apply bg-primary text-secondary font-sans antialiased selection:bg-accent/30 selection:text-white;
   }
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+
+  .glass-panel {
+    @apply bg-glass-surface backdrop-blur-xl border border-glass-border;
+  }
+
+  .glass-card {
+    @apply bg-gradient-to-br from-white/[0.08] to-white/[0.02] backdrop-blur-xl border border-white/[0.1] hover:border-white/[0.2] shadow-2xl hover:shadow-accent/10 transition-all duration-500;
+  }
+
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-white to-neutral;
   }
 }

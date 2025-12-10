@@ -1,103 +1,118 @@
-import { MapPin, Users, TrendingUp } from 'lucide-react';
+import { Brain, Cpu, Globe, ArrowRight } from 'lucide-react';
+import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 
 export function AboutUs() {
     return (
-        <div className="min-h-screen bg-primary text-secondary relative overflow-hidden">
-            {/* Decorative Background */}
-            <div className="absolute top-0 left-0 w-[800px] h-[800px] bg-accent/5 rounded-full blur-[128px] pointer-events-none -translate-x-1/2 -translate-y-1/2"></div>
-
+        <div className="min-h-screen bg-black text-white font-sans selection:bg-white selection:text-black">
             {/* Header */}
-            <section className="pt-32 pb-16 relative z-10">
+            <section className="pt-32 pb-24 border-b border-white/10">
                 <div className="container mx-auto px-6">
-
-
-                    <div className="max-w-4xl">
-                        <h1 className="text-5xl md:text-7xl lg:text-8xl font-serif font-bold mb-6 leading-tight">
-                            About <span className="text-accent italic">mexicasaa</span>
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        className="max-w-4xl"
+                    >
+                        <h1 className="text-6xl md:text-8xl font-bold tracking-tighter mb-8">
+                            We Architect <br /> Intelligence.
                         </h1>
-                        <p className="text-secondary/70 text-lg md:text-xl font-light max-w-2xl leading-relaxed">
-                            We are a premier content creation agency dedicated to elevating brands through authentic, high-impact storytelling.
+                        <p className="text-xl md:text-2xl text-white/60 font-light max-w-2xl leading-relaxed">
+                            UpNxt is an elite AI automation firm. We build the neural infrastructure that powers the next generation of industry leaders.
                         </p>
-                    </div>
+                    </motion.div>
                 </div>
             </section>
 
             {/* Mission Section */}
-            <section className="py-20 relative z-10">
+            <section className="py-24">
                 <div className="container mx-auto px-6">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-                        <div className="relative">
-                            <div className="aspect-[4/5] rounded-2xl overflow-hidden">
+                        <motion.div
+                            initial={{ opacity: 0, x: -20 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            viewport={{ once: true }}
+                            className="relative"
+                        >
+                            <div className="aspect-[4/5] overflow-hidden rounded-sm bg-zinc-900">
                                 <img
-                                    src="https://images.unsplash.com/photo-1542038784456-1ea8e935640e?q=80&w=2070&auto=format&fit=crop"
-                                    alt="On-location shoot"
-                                    className="w-full h-full object-cover"
+                                    src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=1965&auto=format&fit=crop"
+                                    alt="AI Visualization"
+                                    className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
                                 />
                             </div>
-                            <div className="absolute -bottom-8 -right-8 w-64 h-64 bg-accent/10 backdrop-blur-md rounded-2xl p-8 border border-white/10 hidden md:block">
-                                <p className="text-accent text-6xl font-serif font-bold mb-2">100+</p>
-                                <p className="text-secondary/80 text-sm uppercase tracking-widest">Brands Elevated</p>
+                            <div className="absolute -bottom-8 -right-8 bg-white p-8 hidden md:block">
+                                <p className="text-black text-6xl font-bold mb-2 tracking-tighter">500+</p>
+                                <p className="text-black/60 text-sm uppercase tracking-widest font-medium">Workflows Automated</p>
                             </div>
-                        </div>
+                        </motion.div>
 
                         <div className="space-y-8">
-                            <h2 className="text-3xl md:text-5xl font-serif font-bold">
-                                Bringing Your Brand to <span className="text-accent italic">Life</span>
-                            </h2>
-                            <p className="text-secondary/80 text-lg font-light leading-relaxed">
-                                At mexicasaa, we specialize in a unique on-location service that bridges the gap between your brand and your audience. We don't just create content; we create experiences.
-                            </p>
-                            <p className="text-secondary/80 text-lg font-light leading-relaxed">
-                                Our team of professional creators and models travels directly to your location—whether it's a luxury hotel, a boutique salon, or a corporate headquarters—to capture the essence of your brand in its most authentic environment.
-                            </p>
-                            <p className="text-secondary/80 text-lg font-light leading-relaxed">
-                                By producing high-quality reels and photoshoots on-site, we ensure that every piece of content resonates with your specific aesthetic and drives real engagement, making your brand more popular and recognizable in the digital space.
-                            </p>
+                            <motion.h2
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                className="text-4xl md:text-5xl font-bold tracking-tight"
+                            >
+                                The Future is <span className="text-white/40">Automated.</span>
+                            </motion.h2>
+                            <motion.div
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ delay: 0.1 }}
+                                className="space-y-6 text-lg text-white/60 font-light leading-relaxed"
+                            >
+                                <p>
+                                    We believe that human potential should be unleashed, not bogged down by repetition. Our mission is to integrate autonomous agents into your workforce, handling the redundant so your team can focus on the exceptional.
+                                </p>
+                                <p>
+                                    From predictive analytics to autonomous customer support, we construct bespoke AI systems that don't just optimize your business—they revolutionize it.
+                                </p>
+                            </motion.div>
 
-                            <div className="pt-8">
-                                <Link to="/contact">
-                                    <button className="bg-accent text-primary px-8 py-3 text-sm uppercase tracking-widest font-semibold hover:bg-white transition-colors duration-300">
-                                        Work With Us
-                                    </button>
+                            <motion.div
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ delay: 0.2 }}
+                                className="pt-8"
+                            >
+                                <Link to="/contact" className="inline-flex items-center gap-2 border-b border-white pb-1 hover:text-white/70 transition-colors">
+                                    <span className="uppercase tracking-widest text-sm font-medium">Join the Revolution</span>
+                                    <ArrowRight className="w-4 h-4" />
                                 </Link>
-                            </div>
+                            </motion.div>
                         </div>
                     </div>
                 </div>
             </section>
 
-            {/* Features Grid */}
-            <section className="py-20 bg-white/5 border-y border-white/5">
+            {/* Values Grid */}
+            <section className="py-24 border-t border-white/10 bg-zinc-950">
                 <div className="container mx-auto px-6">
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-                        <div className="space-y-4">
-                            <div className="w-12 h-12 rounded-full bg-accent/10 flex items-center justify-center text-accent mb-4">
-                                <MapPin className="w-6 h-6" />
-                            </div>
-                            <h3 className="text-xl font-serif font-bold">On-Location Service</h3>
-                            <p className="text-secondary/70 font-light">
-                                We come to you. Our team sets up professional production environments at your specific location to capture authentic brand moments.
-                            </p>
-                        </div>
-                        <div className="space-y-4">
-                            <div className="w-12 h-12 rounded-full bg-accent/10 flex items-center justify-center text-accent mb-4">
-                                <Users className="w-6 h-6" />
-                            </div>
-                            <h3 className="text-xl font-serif font-bold">Top-Tier Talent</h3>
-                            <p className="text-secondary/70 font-light">
-                                Access our roster of professional models and creators who know exactly how to embody your brand's voice and style.
-                            </p>
-                        </div>
-                        <div className="space-y-4">
-                            <div className="w-12 h-12 rounded-full bg-accent/10 flex items-center justify-center text-accent mb-4">
-                                <TrendingUp className="w-6 h-6" />
-                            </div>
-                            <h3 className="text-xl font-serif font-bold">Viral Growth</h3>
-                            <p className="text-secondary/70 font-light">
-                                Our content is strategically designed to perform on social algorithms, increasing your brand's visibility and popularity.
-                            </p>
-                        </div>
+                        {[
+                            { icon: <Brain className="w-6 h-6" />, title: "Neural Architecture", desc: "We design AI systems that think, learn, and adapt to your specific business needs." },
+                            { icon: <Cpu className="w-6 h-6" />, title: "Precision Engineering", desc: "Production-grade code. Scalable infrastructure. Zero compromise on security." },
+                            { icon: <Globe className="w-6 h-6" />, title: "Global Scale", desc: "Solutions built to handle enterprise workloads across borders and time zones." }
+                        ].map((item, i) => (
+                            <motion.div
+                                key={i}
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ delay: i * 0.1 }}
+                                className="group"
+                            >
+                                <div className="w-12 h-12 flex items-center justify-center text-white mb-6 border border-white/20 rounded-full group-hover:border-white transition-colors">
+                                    {item.icon}
+                                </div>
+                                <h3 className="text-xl font-bold mb-4">{item.title}</h3>
+                                <p className="text-white/60 font-light leading-relaxed">
+                                    {item.desc}
+                                </p>
+                            </motion.div>
+                        ))}
                     </div>
                 </div>
             </section>
